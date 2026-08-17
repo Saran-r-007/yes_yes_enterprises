@@ -1,0 +1,242 @@
+/* Modern Business Website for Yes Yes Enterprises, Pudukkottai */
+/* Theme: White + Vibrant Industrial Orange + Dark Charcoal */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-orange: #FF6B00;
+  --primary-orange-hover: #E05300;
+  --primary-orange-light: rgba(255, 107, 0, 0.1);
+  --dark-charcoal: #1A1D20;
+  --charcoal-medium: #2C3035;
+  --charcoal-light: #444950;
+  --charcoal-bg: #111315;
+  --light-white: #FFFFFF;
+  --light-gray: #F4F6F8;
+  --border-color: #E2E8F0;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--light-white);
+  color: var(--charcoal-medium);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--dark-charcoal);
+  letter-spacing: -0.02em;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--charcoal-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-orange);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseBorder {
+  0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 107, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.pulse-btn {
+  animation: pulseBorder 2s infinite;
+}
+
+/* Industrial warning accent line */
+.industrial-accent {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--primary-orange),
+    var(--primary-orange) 10px,
+    var(--dark-charcoal) 10px,
+    var(--dark-charcoal) 20px
+  );
+  height: 6px;
+  width: 100%;
+}
+
+.industrial-accent-thin {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--primary-orange),
+    var(--primary-orange) 5px,
+    var(--dark-charcoal) 5px,
+    var(--dark-charcoal) 10px
+  );
+  height: 3px;
+  width: 100%;
+}
+
+/* Active Page Navigation Styling */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary-orange);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-orange) !important;
+}
+
+/* Premium Shadows & Cards */
+.premium-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px -2px rgba(26, 29, 32, 0.04), 0 2px 6px -1px rgba(26, 29, 32, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 107, 0, 0.3);
+  box-shadow: 0 12px 30px -10px rgba(255, 107, 0, 0.12), 0 4px 10px -2px rgba(26, 29, 32, 0.04);
+}
+
+/* Custom Gradients */
+.bg-charcoal-gradient {
+  background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal-bg) 100%);
+}
+
+.bg-orange-gradient {
+  background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-orange-hover) 100%);
+}
+
+.text-gradient-orange {
+  background: linear-gradient(135deg, #FF8C32 0%, var(--primary-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hero Section Diagonal Banner */
+.diagonal-bg {
+  position: relative;
+}
+.diagonal-bg::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background: #ffffff;
+  bottom: 0;
+  left: 0;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+/* Circular Footer Icons styling */
+.footer-icon-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--charcoal-medium);
+  color: var(--light-white);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-icon-btn:hover {
+  background: var(--primary-orange);
+  color: var(--light-white);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.4);
+  border-color: var(--primary-orange);
+}
+
+/* Inline live edit glow */
+.live-editing {
+  outline: 2px dashed var(--primary-orange) !important;
+  outline-offset: 4px;
+  position: relative;
+  background-color: rgba(255, 107, 0, 0.03);
+}
+
+.live-edit-btn {
+  background-color: var(--primary-orange);
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Grid pattern */
+.grid-overlay {
+  background-size: 20px 20px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+.grid-overlay-dark {
+  background-size: 30px 30px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
